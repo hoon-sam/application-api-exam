@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service
 class AuthService(private val accounts: Accounts) {
 
     fun login(loginDto: LoginDto): Boolean {
+        val isExistsEmail = accounts.existsByEmail(loginDto.email)
+        if (!isExistsEmail) return false
+
         val account = accounts.findByEmail(loginDto.email)
         if (account.password != loginDto.password) {
             return false

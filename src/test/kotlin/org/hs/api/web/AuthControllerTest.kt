@@ -37,7 +37,7 @@ internal class AuthControllerTest(
         val json = """
             {"email": "admin@co.kr", "password": "1111"}
         """.trimIndent()
-        mockMvc.perform(post("/auth/login").contentType(MediaType.APPLICATION_JSON).content(json))
+        mockMvc.perform(post("/api/auth/login").contentType(MediaType.APPLICATION_JSON).content(json))
                 .andDo(print())
                 .andExpect(status().isOk)
     }

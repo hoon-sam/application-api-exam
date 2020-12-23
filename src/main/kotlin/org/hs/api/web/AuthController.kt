@@ -12,16 +12,17 @@ import org.springframework.web.bind.annotation.RestController
 import javax.validation.Valid
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 class AuthController(
         private val authService: AuthService,
         private val accountService: AccountService) {
 
     @PostMapping("/login")
     fun login(@Valid @RequestBody loginDto: LoginDto): ResponseEntity<Any> {
+        print(loginDto)
         val result = authService.login(loginDto)
         if (!result) {
-            return ResponseEntity.badRequest().build()
+            return ResponseEntity.notFound().build()
         }
         val account = accountService.findByEmail(loginDto.email)
         val accountDto = createAccountDto(account)

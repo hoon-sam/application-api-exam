@@ -3,8 +3,8 @@ package org.hs.api.web.payload
 import javax.validation.constraints.NotBlank
 
 class LoginDto(
-        @NotBlank
+        @field:NotBlank
         val email: String,
-        @NotBlank
+        @field:NotBlank
         val password: String
 )
