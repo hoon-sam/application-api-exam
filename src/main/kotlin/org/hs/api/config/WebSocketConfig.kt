@@ -11,11 +11,11 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 class WebSocketConfig : WebSocketMessageBrokerConfigurer {
 
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
-        registry.addEndpoint("/websocket").withSockJS()
+        registry.addEndpoint("/ws").withSockJS()
     }
 
     override fun configureMessageBroker(registry: MessageBrokerRegistry) {
-        registry.enableSimpleBroker("/api/subscribe")
+        registry.enableSimpleBroker("/subscribe")
         registry.setApplicationDestinationPrefixes("/app")
     }
 
