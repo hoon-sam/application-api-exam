@@ -18,7 +18,7 @@ class Application {
         val joinDto = JoinDto()
         joinDto.email = "admin@co.kr"
         joinDto.username = "admin"
-        joinDto.password = "1111";
+        joinDto.password = "1111"
         val account = Account.create(joinDto)
         accounts.save(account)
     }
