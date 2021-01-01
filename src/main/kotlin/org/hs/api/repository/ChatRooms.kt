@@ -6,7 +6,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 @Repository
-class ChatRoomRepository {
+class ChatRooms {
 
     fun getList(): List<ChatRoom> {
         val rooms = ArrayList<ChatRoom>()
